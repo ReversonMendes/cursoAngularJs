@@ -1,4 +1,8 @@
 myApp.controller('FormCtrl',function($scope){
+
+	$scope.indexTarefa = 0;
+	$scope.visibleRenomear = false;
+	
 	$scope.pessoa = {
 		name : 'Reverson',
 		lastname : 'Teste',
@@ -30,7 +34,8 @@ myApp.controller('FormCtrl',function($scope){
 		}
 	];
 
-	$scope.cadastraTarefa = function cadastraTarefa(data){
+	//Função para cadastrar uma nova tarefa
+	$scope.cadastraTarefa = function(data){
 		if(!!data){
 			$scope.list.push({
 				nomeTarefa : data,
@@ -38,5 +43,29 @@ myApp.controller('FormCtrl',function($scope){
 			});
 			$scope.tarefa = undefined;
 		}
+	}	
+
+	// Função para editar uma tarefa
+	$scope.editarTarefa = function(dataIndex){
+		console.log(dataIndex);
+		$scope.indexTarefa = dataIndex;
+		$scope.renomear = $scope.list[dataIndex].nomeTarefa;
+		$scope.visibleRenomear = true;
+	}	
+
+	// Função para renomear uma tarefa
+	$scope.renomearTarefa = function(data){
+		var editObj = {};
+
+		editObj = {
+			'nomeTarefa' : data,
+			'dataTarefa' : $scope.list[$scope.indexTarefa].dataTarefa
+		}
+
+		$scope.list[$scope.indexTarefa] = editObj;
+		$scope.renomear = undefined;
+		$scope.visibleRenomear = false;
+		console.log(editObj);
+		
 	}	
 });
