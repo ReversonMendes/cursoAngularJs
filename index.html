@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>AngularJS - Curso</title> 
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/myApp.js"></script>
+	<script type="text/javascript" src="js/controller/formCtrl.js"></script>
+	<meta charset="UTF-8">
+</head>
+<body ng-controller="FormCtrl">
+	<div class="container">
+		<form id="form">		
+			<h1 ng-bind="'Formulário'"></h1>
+			<div class="form-group col-xs-12 col-sm-6">
+				<label for="name">Nome:</label>
+				<input type="text" class="form-control col-xs-12 col-sm-6" id="name" ng-model="pessoa.name" placeholder="qual seu nome?"></input>
+			</div>
+
+			<div class="form-group col-xs-12 col-sm-6">
+				<label for="lastname">Sobrenome:</label>
+				<input type="text" class="form-control" id="lastname" ng-model="pessoa.lastname"  placeholder="qual seu sobrenome?"></input>
+			</div>
+
+			<div class="form-group col-xs-12 col-sm-2">
+				<label for="age">Idade:</label>
+				<input type="number" class="form-control col-xs-12 col-sm-6" id="age" ng-model="pessoa.age" placeholder="Sua idade?"></input>
+			</div>
+
+			<div class="form-group col-xs-12 col-sm-6">
+				<label for="email">e-mail:</label>
+				<input type="email" class="form-control" id="email" ng-model="pessoa.email"  placeholder="qual seu email"></input>
+			</div>
+
+			<div class="form-group col-xs-12 col-sm-4">
+				<label for="fone">Fone:</label>
+				<input type="text" class="form-control" id="fone" ng-model="pessoa.fone"  placeholder="qual seu telefone?"></input>
+			</div>
+		</form>		
+		<hr>
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Check</th>
+						<th>Tarefa</th>
+						<th>Data</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat= "item in list">
+						<td><input type="checkbox"></input></td>
+						<td>{{ item.nomeTarefa}}</td>
+						<td>15/03/2016</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>{{ list }}</p>
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>
