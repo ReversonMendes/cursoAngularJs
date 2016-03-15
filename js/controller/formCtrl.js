@@ -10,28 +10,33 @@ myApp.controller('FormCtrl',function($scope){
 	$scope.list =[
 		{
 			nomeTarefa : 'Tarefa Teste',
-			dataTarefa : 'Tue Mar 15 2016 18:47:30 GMT-0300'
+			dataTarefa : '2016-03-15T08:06:59.149Z'
 		},
 		{
 			nomeTarefa : 'Limpar Casa',
-			dataTarefa : 'Tue Mar 15 2016 18:47:30 GMT-0300 '
+			dataTarefa : '2016-03-15T08:06:59.149Z'
 		},
 		{
 			nomeTarefa : 'Trabalhar',
-			dataTarefa : 'Tue Mar 15 2016 18:47:30 GMT-0300'
+			dataTarefa : '2016-03-15T08:06:59.149Z'
 		},
 		{
 			nomeTarefa : 'Cortar Grama',
-			dataTarefa : 'Tue Mar 15 2016 18:47:30 GMT-0300 '
+			dataTarefa : '2016-03-15T08:06:59.149Z'
 		},
 		{
 			nomeTarefa : 'Trabalhar de novo',
-			dataTarefa : 'Tue Mar 15 2016 18:47:30 GMT-0300 '
+			dataTarefa : '2016-03-15T08:06:59.149Z'
 		}
 	];
 
-	var teste = new Date();
-	console.log($scope.list);
-	console.log(teste);
-	
+	$scope.cadastraTarefa = function cadastraTarefa(data){
+		if(!!data){
+			$scope.list.push({
+				nomeTarefa : data,
+				dataTarefa : new Date().getTime()
+			});
+			$scope.tarefa = undefined;
+		}
+	}	
 });
